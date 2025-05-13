@@ -26,6 +26,14 @@ public class LibroService {
         return libroRepository.buscarId(id);
     }
 
+    public Libro getLibroIsbn(String isbn){
+        return libroRepository.buscarIsbn(isbn);
+    }
+
+    public Libro getLibroAutor(String autor){
+        return libroRepository.buscarAutor(autor);
+    }
+
     public Libro updateLibro(Libro libro){
         return libroRepository.actualizaLibro(libro);
     }
@@ -33,5 +41,15 @@ public class LibroService {
     public String deleteLibro(int id){
         libroRepository.eliminar(id);
         return "Libro eliminado";
+    }
+
+    // Utilizar método del repositorio para obtener libros. Se puede agregar más lógica de ser necesario
+    public int totalLibrosV1(){
+        return libroRepository.obtenerLibros().size(); // LA ACCIÓN LA REALIZAC EL SERVICE
+    }
+
+    // Invocar método creado en el Repositorio para obtener total
+    public int totalLibrosV2(){
+        return libroRepository.totalLibros(); // LA ACCIÓN LA REALIZA EL REPOSITORY
     }
 }

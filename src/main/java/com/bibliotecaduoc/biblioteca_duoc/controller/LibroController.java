@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -50,5 +52,15 @@ public class LibroController {
     @DeleteMapping("{id}")
     public String eliminarLibro(@PathVariable int id){
         return libroService.deleteLibro(id);
+    }
+
+    @GetMapping("/totalV1")
+    public int totalLibrosV1(){
+        return libroService.totalLibrosV1();
+    }
+    
+    @GetMapping("/totalV2")
+    public int totalLibrosV2(){
+        return libroService.totalLibrosV2();
     }
 }
